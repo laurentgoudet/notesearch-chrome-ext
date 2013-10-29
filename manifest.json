@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   
-  "name": "OmniNote",
-  "description": "OmniNote lets you quickly search and access your notes stored in Evernote® directly from Chrome's Omnibox (search bar).",
+  "name": "NoteSearch",
+  "description": "NoteSearch lets you quickly search and access your notes stored in Evernote® directly from your browser's search bar.",
   "author": "Laurent Goudet",
   "version": "1.0.1",
   

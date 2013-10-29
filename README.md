@@ -1,6 +1,6 @@
-Omninote server app
+NoteSearch server app
 ===================
-This Express app performs the OAuth flow needed by the Omninote Chrome browser extension.
+This Express app performs the OAuth flow needed by the NoteSearch Chrome browser extension.
 
 Setup
 -----------

@@ -2,8 +2,8 @@ var debug = true;
 var userStoreURL = "https://sandbox.evernote.com/edam/user";
 var authenticationToken = filter = noteStore = resultSpec = noteStoreURL = null;
 
-var oauth_page = "http://omninote.laurentgoudet.com/oauth"
-var success_page = "http://omninote.laurentgoudet.com/success"
+var oauth_page = "http://notesearch.laurentgoudet.com/oauth"
+var success_page = "http://notesearch.laurentgoudet.com/success"
 var tabs = {};
 
 if (localStorage['access_token']) {
@@ -26,7 +26,7 @@ _gaq.push(['_trackPageview']);
 })();
 
 function getAccessToken() {
-	// Open a new tab on http://omninote.laurentgoudet.com/oauth
+	// Open a new tab on http://notesearch.laurentgoudet.com/oauth
 	chrome.tabs.create({ 'url' : oauth_page }, function(tab) {
   	  tabs[tab.id] = tab.url;
 	});
@@ -89,7 +89,7 @@ function getNotesList(query,suggest) {
 			var suggestArray=new Array();
 			for( var note in  noteList.notes ){
 				var noteURL = noteStoreURL.replace("notestore","view/notebook/") + noteList.notes[note].guid;
-				var description = noteList.notes[note].title + "<dim> - " + "OmniNote" + "</dim>";
+				var description = noteList.notes[note].title + "<dim> - " + "notesearch" + "</dim>";
 				if(debug) console.log("getNotesList: description: " + description);
 				suggestArray.push({content: noteURL, description: description });
 			}
