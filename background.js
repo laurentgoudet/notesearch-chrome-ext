@@ -2,8 +2,8 @@ var debug = true;
 var userStoreURL = "https://sandbox.evernote.com/edam/user";
 var authenticationToken = filter = noteStore = resultSpec = noteStoreURL = null;
 
-var oauth_page = "http://notesearch.laurentgoudet.com/oauth"
-var success_page = "http://notesearch.laurentgoudet.com/success"
+var oauth_page = "https://notesearch.laurentgoudet.com/oauth"
+var success_page = "https://notesearch.laurentgoudet.com/success"
 var tabs = {};
 
 if (localStorage['access_token']) {
@@ -26,7 +26,7 @@ _gaq.push(['_trackPageview']);
 })();
 
 function getAccessToken() {
-	// Open a new tab on http://notesearch.laurentgoudet.com/oauth
+	// Open a new tab on https://notesearch.laurentgoudet.com/oauth
 	chrome.tabs.create({ 'url' : oauth_page }, function(tab) {
   	  tabs[tab.id] = tab.url;
 	});
