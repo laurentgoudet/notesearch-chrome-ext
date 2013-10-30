@@ -7,8 +7,8 @@
   "version": "1.0.1",
   
   "icons": { "16": "icon16.png",
-             "48": "icon48-green.png",
-            "128": "icon128-green.png" },
+             "48": "icon48.png",
+            "128": "icon128.png" },
 			
   "background": {
     "scripts": ["evernote-sdk-minified.js", "background.js"],
