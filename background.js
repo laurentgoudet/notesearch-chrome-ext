@@ -89,7 +89,7 @@ function getNotesList(query,suggest) {
 			var suggestArray=new Array();
 			for( var note in  noteList.notes ){
 				var noteURL = noteStoreURL.replace("notestore","view/notebook/") + noteList.notes[note].guid;
-				var description = noteList.notes[note].title + "<dim> - " + "notesearch" + "</dim>";
+				var description = noteList.notes[note].title + "<dim> - " + "NoteSearch" + "</dim>";
 				if(debug) console.log("getNotesList: description: " + description);
 				suggestArray.push({content: noteURL, description: description });
 			}
@@ -101,7 +101,7 @@ function getNotesList(query,suggest) {
 chrome.omnibox.onInputChanged.addListener(
   function(text, suggest) {
 	if(debug) console.log("onInputChanged: text:" + text);
-	chrome.omnibox.setDefaultSuggestion({description:"Search "+text+" in Evernote"});
+	chrome.omnibox.setDefaultSuggestion({description:"Search \""+text+"\" in Evernote"});
 	getNotesList(text,suggest);
 });
 
