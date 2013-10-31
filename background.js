@@ -1,5 +1,5 @@
 var debug = true;
-var userStoreURL = "https://sandbox.evernote.com/edam/user";
+var userStoreURL = "https://www.evernote.com/edam/user";
 var authenticationToken = filter = noteStore = resultSpec = noteStoreURL = null;
 
 var oauth_page = "https://notesearch.laurentgoudet.com/oauth"
@@ -58,7 +58,7 @@ function initNotestore() {
     userStoreTransport = new Thrift.BinaryHttpTransport(userStoreURL);
     userStoreProtocol = new Thrift.BinaryProtocol(userStoreTransport);
     userStore = new UserStoreClient(userStoreProtocol);
-    userStore.getNoteStoreUrl(authenticationToken, 
+    userStore.getNoteStoreUrl(authenticationToken,
 		function (url) {
       	  if(debug) console.log("authorize: noteStoreURL: " + url);
 			noteStoreURL = url;
@@ -110,8 +110,8 @@ chrome.omnibox.onInputEntered.addListener(
   function(text) {
 	if(debug) console.log("onInputChanged: text: " + text);
 	var regexp = /[abcdef0-9]{8}-[abcdef0-9]{4}-[abcdef0-9]{4}-[abcdef0-9]{4}-[abcdef0-9]{12}/;
-	if(!regexp.test(text)) 
-		chrome.tabs.update({url:  "https://sandbox.evernote.com/Home.action?#st=p&x="+text});	
-	else 
+	if(!regexp.test(text))
+		chrome.tabs.update({url:  "https://www.evernote.com/Home.action?#st=p&x="+text});
+	else
 		chrome.tabs.update({url: text + "#st=p&n=" + text.match(regexp)});
   });
