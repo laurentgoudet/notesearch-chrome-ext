@@ -4,7 +4,7 @@
   "name": "NoteSearch",
   "description": "NoteSearch lets you quickly search and access your notes stored in Evernote® directly from your browser's search bar.",
   "author": "Laurent Goudet",
-  "version": "1.0.1",
+  "version": "1.0.2",
   
   "icons": { "16": "icon16.png",
              "48": "icon48.png",

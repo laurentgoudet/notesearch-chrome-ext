@@ -6,14 +6,6 @@ var oauth_page = "https://notesearch.laurentgoudet.com/oauth"
 var success_page = "https://notesearch.laurentgoudet.com/success"
 var tabs = {};
 
-if (localStorage['access_token']) {
-	authenticationToken = localStorage['access_token'];
-	initNotestore();
-}
-else {
-	getAccessToken();
-}
-
 /* Let's do a bit a analytics for the fun */
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-44704339-1']);
@@ -97,6 +89,18 @@ function getNotesList(query,suggest) {
 		});
 	}
 }
+
+chrome.omnibox.onInputStarted.addListener(
+  function() {
+  if (!localStorage['access_token']) {
+    authenticationToken = getAccessToken();
+  } else {  
+    authenticationToken = localStorage['access_token'];
+  }
+  if (authenticationToken) {
+    initNotestore();
+  }
+});
 
 chrome.omnibox.onInputChanged.addListener(
   function(text, suggest) {
